@@ -22,15 +22,13 @@ app.use(
         saveUninitialized: true,
     }));
 
-//app.use(express.static('../frontend'));
+// Static files
 app.use(express.static('public'));
 
 // Index route
 app.get('/', (req, res) => {
     console.log("get / req.sessionID: ", req.sessionID);
-    //alert("hello");
-    //res.send('Hello World!');
-    });
+});
 
 // test route
 app.get('/test', (req, res) => {
@@ -40,12 +38,6 @@ app.get('/test', (req, res) => {
 // home route
 app.get('/home', (req, res) => {
     res.sendFile(path.join(__dirname, './public/home.html'));
-    
-    //res.sendFile(path.resolve(__dirname, '../frontend/home.html'));
-    /*fs.readFile(path.resolve(__dirname, '../frontend/home.html'), function (err, data) {
-        res.writeHead(200, {'Content-Type': 'text/html'});
-        res.write(data);
-        res.end();*/
     console.log("get /home req.sessionID: ", req.sessionID);
 });
 
